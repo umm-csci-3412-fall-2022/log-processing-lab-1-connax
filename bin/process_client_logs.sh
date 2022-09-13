@@ -1,35 +1,15 @@
 #!/bin/sh
 
-scratch=$(mktemp --directory)
-
 #We want to loop this later
+
+tgzdirname=$1
 
 touch failed_login_data.txt
 
-for tgzfile in ../log_files/*
-
+for logfile in  "$tgzdirname"/var/log/*
 do
 
-	tgzdirname=$(basename -s _secure.tgz $tgzfile)
+	echo $logfile
+	awk 'match($0, /(.+):[0-9]+:[0-9]+\scomputer_name.+\s(\w+)\sfrom\s(\S+)\sport.+$/, groups) {print  groups[1] " " groups[2] " " groups[3]}' < "${logfile}" >> failed_login_data.txt
 
-	echo "$tgzdirname"
-
-	pushd "$scratch"
-
-	mkdir "$tgzdirname"
-
-	popd
-
-	tar -xvf "$tgzfile" --directory "$scratch"/"$tgzdirname"
-
-	for logfile in "$scratch"/"$tgzdirname"/var/log/*
-
-	do
-
-		echo "$logfile"
-
-		awk 'match($0, /([a-zA-Z]+\s[0-9]+\s[0-9]+):.+Failed\spassword.+user\s(\w+)\sfrom\s(\S+)/, groups) {print  groups[1] " " groups[2] " " groups[3]}' < "$logfile" > failed_login_data.txt
-
-	done
 done
-rm -rf "$scratch"
