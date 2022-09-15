@@ -1,13 +1,3 @@
-	<!-- ++++++++++++ START OF USERNAME HEADER +++++++++++++++++++++++++++++++ -->
-	
-	google.setOnLoadCallback(drawUsernameDistribution);
-
-	function drawUsernameDistribution() {
-		var data = new google.visualization.DataTable();
-		data.addColumn('string', 'Username');
-		data.addColumn('number', 'Number of failed logins');
-
-	<!-- ++++++++++++ END OF USERNAME HEADER +++++++++++++++++++++++++++++++ -->
 data.addRow(['a',1]);
 data.addRow(['aaron',1]);
 data.addRow(['admin',8]);
@@ -134,10 +124,3 @@ data.addRow(['wrestling',1]);
 data.addRow(['xbox',1]);
 data.addRow(['xxx',3]);
 data.addRow(['zimbra',1]);
-	<!-- ++++++++++++ START OF USERNAME FOOTER +++++++++++++++++++++++++++++++ -->
-
-		var chart = new google.visualization.PieChart(document.getElementById('username_dist_div'));
-		chart.draw(data, {width: 800, height: 550, title: 'Failed logins by username'});
-	}
-
-	<!-- ++++++++++++ END OF USERNAME FOOTER +++++++++++++++++++++++++++++++ -->
