@@ -1,4 +1,3 @@
-
 #!/bin/sh
 
 content_file=$1

@@ -9,7 +9,7 @@ touch username.html
 for compdir in "$dirname"/*/
 
 do
-awk 'match($0, /(\S+) \S+$/, group) {print group[1]}' < ${compdir}/failed_login_data.txt >> listofusers.txt
+awk 'match($0, /(\S+) \S+$/, group) {print group[1]}' < "$compdir"/failed_login_data.txt >> listofusers.txt
 done
 
 sort listofusers.txt | uniq -c | awk 'match($0, /([0-9]+) (\S+)/, group){print "data.addRow([\x27" group[2] "\x27, "group[1] "]);"}'>> ./username.html

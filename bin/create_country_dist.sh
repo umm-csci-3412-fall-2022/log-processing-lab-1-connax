@@ -1,4 +1,3 @@
-
 #!/bin/sh
 dirname=$1
 
@@ -9,7 +8,7 @@ touch sortcountry.txt
 for compdir in "$dirname"/*/
 
 do
-awk 'match($0, / (\S+)$/, group) {print group[1]}' < ${compdir}/failed_login_data.txt >> listofcountries.txt
+awk 'match($0, / (\S+)$/, group) {print group[1]}' < "$compdir"/failed_login_data.txt >> listofcountries.txt
 done
 
 sort listofcountries.txt > sortcountry.txt
