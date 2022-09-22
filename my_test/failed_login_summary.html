@@ -1,3 +1,32 @@
+	<!-- ++++++++++++ START OF COUNTRY HEADER +++++++++++++++++++++++++++++++ -->
+	
+	google.setOnLoadCallback(drawCountryDistribution);
+
+	function drawCountryDistribution() {
+		var data = new google.visualization.DataTable();
+		data.addColumn('string', 'Country');
+		data.addColumn('number', 'Number of failed logins');
+
+	<!-- ++++++++++++ END OF COUNTRY HEADER +++++++++++++++++++++++++++++++ -->
+data.addRow(['BR', 4]);
+data.addRow(['CA', 3]);
+data.addRow(['CN', 1411]);
+data.addRow(['DE', 157]);
+data.addRow(['FR', 4]);
+data.addRow(['IN', 51]);
+data.addRow(['KR', 496]);
+data.addRow(['RO', 4]);
+data.addRow(['RU', 23]);
+data.addRow(['TR', 4]);
+data.addRow(['TW', 273]);
+data.addRow(['US', 813]);
+	<!-- ++++++++++++ START OF COUNTRY FOOTER +++++++++++++++++++++++++++++++ -->
+
+		var chart = new google.visualization.GeoChart(document.getElementById('country_dist_div'));
+		chart.draw(data, {width: 800, height: 500, title: 'Failed logins by country'});
+	}
+
+	<!-- ++++++++++++ END OF COUNTRY FOOTER +++++++++++++++++++++++++++++++ -->
 	<!-- ++++++++++++ START OF USERNAME HEADER +++++++++++++++++++++++++++++++ -->
 	
 	google.setOnLoadCallback(drawUsernameDistribution);
@@ -9,6 +38,8 @@
 
 	<!-- ++++++++++++ END OF USERNAME HEADER +++++++++++++++++++++++++++++++ -->
 data.addRow(['1',1]);
+data.addRow(['Giani',2]);
+data.addRow(['PlcmSpIp',1]);
 data.addRow(['a',2]);
 data.addRow(['aaliyah',1]);
 data.addRow(['aaron',3]);
@@ -201,9 +232,9 @@ data.addRow(['fred',2]);
 data.addRow(['freeze',1]);
 data.addRow(['frei',2]);
 data.addRow(['ftp',1]);
+data.addRow(['ftp_wooripa',2]);
 data.addRow(['ftpguest',1]);
 data.addRow(['ftpuser',4]);
-data.addRow(['ftp_wooripa',2]);
 data.addRow(['gabriel',1]);
 data.addRow(['gabriella',1]);
 data.addRow(['gabrielle',1]);
@@ -215,7 +246,6 @@ data.addRow(['generalmanager',1]);
 data.addRow(['genoveva',2]);
 data.addRow(['george',1]);
 data.addRow(['gerry',2]);
-data.addRow(['Giani',2]);
 data.addRow(['gnats',1]);
 data.addRow(['gopher',1]);
 data.addRow(['grace',1]);
@@ -430,7 +460,6 @@ data.addRow(['photo',1]);
 data.addRow(['physics',1]);
 data.addRow(['pico',1]);
 data.addRow(['plcmspip',2]);
-data.addRow(['PlcmSpIp',1]);
 data.addRow(['poczta',1]);
 data.addRow(['pop',1]);
 data.addRow(['popa3d',1]);

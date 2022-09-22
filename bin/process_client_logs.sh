@@ -9,8 +9,8 @@ touch failed_login_data.txt
 for logfile in  "$tgzdirname"/var/log/*
 do
 
-	echo $logfile
-	awk 'match($0, /(.+):[0-9]+:[0-9]+.+Failed\spassword\s.+\s(\w+)\sfrom\s(\S+)\sport.+$/, groups) {print  groups[1] " " groups[2] " " groups[3]}' < "${logfile}" >> failed_login_data.txt
+
+	awk 'match($0, /(.+):[0-9]+:[0-9]+.+Failed\spassword\s.+\s(\w+)\sfrom\s(\S+)\sport.+$/, groups) {print groups[1] " " groups[2] " " groups[3]}' < "${logfile}" >> failed_login_data.txt
 
 done
 

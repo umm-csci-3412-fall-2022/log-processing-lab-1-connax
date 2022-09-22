@@ -6,7 +6,7 @@ touch listofcountries.txt
 touch countries.html
 touch sortcountry.txt
 
-for compdir in "$dirname"/*
+for compdir in "$dirname"/*/
 
 do
 awk 'match($0, / (\S+)$/, group) {print group[1]}' < ${compdir}/failed_login_data.txt >> listofcountries.txt
