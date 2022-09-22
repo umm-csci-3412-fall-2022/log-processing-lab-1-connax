@@ -1,16 +1,15 @@
 #!/bin/sh
 
 dirname=$1
+currDir=$(pwd)
 
-
-
-pushd "$dirname" || exit
+cd "$dirname" || exit
 
 touch report.txt
 
 cat country_dist.html hours_dist.html username_dist.html > report.txt
 
-popd || exit
+cd "$currDir" || exit
 
 ./bin/wrap_contents.sh "$dirname"/report.txt html_components/summary_plots "$dirname"/failed_login_summary.html
 
